@@ -25,7 +25,7 @@ def stworz_tabele(df, p1, p2, pytania):
     with pd.ExcelWriter("processed.xlsx", engine="openpyxl") as writer:
         tabela.to_excel(writer, sheet_name="Wyniki")
         df_chi = pd.DataFrame([{
-            'Statystyka chi²': chi2,
+            'Statystyka chiÂ²': chi2,
             'P-value': p,
             'Stopnie swobody': dof
         }])
