@@ -1,1 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Analiza chi-kwadrat</title>
+</head>
+<body>
+    <h1>Wgraj plik Excel (XLSX)</h1>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="plik" accept=".xlsx" required><br><br>
+        {% if pytania %}
+        <label for="pytanie1">Pytanie 1:</label>
+        <select name="pytanie1">
+            {% for p in pytania %}
+                <option value="{{ p }}">{{ p }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <label for="pytanie2">Pytanie 2:</label>
+        <select name="pytanie2">
+            {% for p in pytania %}
+                <option value="{{ p }}">{{ p }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <button type="submit">Przetwórz</button>
+        {% else %}
+        <button type="submit">Wyswietl pytania</button>
+        {% endif %}
+    </form>
 
+    {% if plik_gotowy %}
+    <p><a href="/pobierz">Pobierz przetworzony plik Excel</a></p>
+    {% endif %}
+</body>
+</html>
